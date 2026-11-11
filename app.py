@@ -6,7 +6,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input as mobil
 
 
 
-model = load_model("../models/mobilenetv2_tuned_model.keras",
+model = load_model("./models/mobilenetv2_tuned_model.keras",
                     custom_objects={ "preprocess_input": mobilenetv2_preprocessing},
                     compile = False,)
 
