@@ -95,7 +95,6 @@ Partial fine-tuning increased `notflip` recall from **0.9446** to **0.9772**. Pr
 ## 5. Model Explainability
 
 The notebook uses **Grad-CAM** on the partially unfrozen MobileNetV2 to visualize which regions of an example frame contribute to its predicted class. It weights the final backbone feature maps by the gradients of the class score, normalizes the resulting heatmap, and overlays it on the original frame. The side-by-side view helps inspect whether the prediction draws on the moving page edge, the document surface, or surrounding areas.
----
 
 ## 6. Gradio Application
 
