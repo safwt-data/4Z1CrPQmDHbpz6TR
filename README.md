@@ -23,6 +23,7 @@ A computer vision project that classifies individual video frames as page flippi
 - [3. Computer Vision Models](#3-computer-vision-models)
 - [4. Model Optimization](#4-model-optimization)
 - [5. Model Explainability](#5-model-explainability)
+- [6. Gradio Application](#8-gradio-application)
 - [Key Findings](#-key-findings)
 - [Business Interpretation](#-business-interpretation)
 - [Project Contribution](#-project-contribution)
@@ -95,6 +96,14 @@ Partial fine-tuning increased `notflip` recall from **0.9446** to **0.9772**. Pr
 
 The notebook uses **Grad-CAM** on the partially unfrozen MobileNetV2 to visualize which regions of an example frame contribute to its predicted class. It weights the final backbone feature maps by the gradients of the class score, normalizes the resulting heatmap, and overlays it on the original frame. The side-by-side view helps inspect whether the prediction draws on the moving page edge, the document surface, or surrounding areas.
 ---
+
+## 6. Gradio Application
+
+The MonReader prototype lets users test page-flip detection on a single image. The interface provides:
+
+- An image upload field for a frame from a page-flipping video.
+- A prediction showing whether the page is flipping or not flipping.
+- A Grad-CAM overlay highlighting the image regions that contributed to the prediction.
 
 ## 🔑 Key Findings
 
