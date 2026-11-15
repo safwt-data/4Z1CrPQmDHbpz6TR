@@ -59,7 +59,7 @@ Images are stored in class folders under separate training and testing directori
 | Validation | 478 | Track training and monitor validation loss |
 | Test | 597 | Compare saved models on held-out images |
 
-Keras assigns labels alphabetically. **`flip` is label 0** and **`notflip` is label 1**. At a threshold of 0.5, higher sigmoid scores indicate `notflip`. The reported positive-class precision, recall, and F1 therefore describe `notflip`.
+Keras assigns labels alphabetically. **`flip` is label 1** and **`notflip` is label 0**. At a threshold of 0.5, higher sigmoid scores indicate `notflip`. The reported positive-class precision, recall, and F1 therefore describe `notflip`.
 
 ## 2. Preprocessing and Augmentation
 
