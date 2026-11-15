@@ -26,7 +26,6 @@ A computer vision project that classifies individual video frames as page flippi
 - [Key Findings](#-key-findings)
 - [Business Interpretation](#-business-interpretation)
 - [Project Contribution](#-project-contribution)
-- [How to Run](#-how-to-run)
 - [Conclusion](#-conclusion)
 
 ---
@@ -118,20 +117,6 @@ Frozen MobileNetV2 is the recommended candidate for mobile integration based on 
 - Saved and reloaded Keras models and compared test metrics, parameter counts, and file sizes.
 - Implemented a Grad-CAM overlay to inspect a prediction from the tuned MobileNetV2.
 
-## 🚀 How to Run
-
-1. Put `modeling_notebook.ipynb` in a `notebooks/` directory. Place the dataset next to that directory in `data/training/{flip,notflip}/` and `data/testing/{flip,notflip}/`.
-2. Install the notebook dependencies and create the model output folder from the project root.
-
-   ```bash
-   python -m pip install tensorflow keras pandas numpy matplotlib pillow jupyter
-   mkdir -p models
-   cd notebooks
-   jupyter notebook modeling_notebook.ipynb
-   ```
-
-3. Run the notebook from top to bottom to train and save the models, then evaluate them on the test set. The first run downloads pretrained ImageNet weights.
-4. Set `img_path` in the Grad-CAM section to a test image available on your machine. Run the example to display the original frame and its overlay.
 
 ## ✅ Conclusion
 
