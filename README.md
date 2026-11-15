@@ -100,11 +100,11 @@ The notebook uses **Grad-CAM** on the partially unfrozen MobileNetV2 to visualiz
 
 - **ResNet50 achieved the highest test F1.** Its 90.63 MiB saved model exceeds the mobile file-size budget.
 - **Frozen MobileNetV2 led the models that met both targets.** It achieved 0.9236 F1 at 9.19 MiB. EfficientNetB0 also met both targets, with 0.9216 F1 at 16.27 MiB.
-- **The VGG16 random-contrast run scored lower than plain VGG16.** Its F1 dropped from 0.8662 to 0.6497 in this comparison.
+- **The VGG16 random-contrast run scored lower than augmented VGG16.** Its F1 dropped from 0.8662 to 0.6497 in this comparison.
 
 ## 💼 Business Interpretation
 
-Frozen MobileNetV2 is the recommended candidate for mobile integration based on test F1 and saved file size. A false `notflip` prediction can allow a moving frame into the scan pipeline. A false `flip` prediction can delay capture of a usable frame. The app can use these two error costs to decide how conservative its capture threshold should be. The comparison measures saved file size and test accuracy metrics. Device latency and memory usage remain to be measured.
+Frozen MobileNetV2 is the recommended candidate for mobile integration based on test F1 and saved file size. A false `notflip` prediction can allow a moving frame into the scan pipeline. A false `flip` prediction can delay capture of a usable frame. The app can use these two error costs to decide how conservative its capture threshold should be. The comparison measures saved file size and test accuracy metrics.
 
 ## 👨‍💻 Project Contribution
 
