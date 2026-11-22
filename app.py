@@ -78,5 +78,5 @@ if __name__ == "__main__":
         ],
     ).launch()
 
-# & "$env:TEMP\gradio-app\Scripts\python.exe" .\app.py 
+# & "$env:USERPROFILE\flip\Scripts\python.exe" .\app.py
 # you need that as the current environment is using a long upload and this work 
