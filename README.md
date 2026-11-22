@@ -100,6 +100,8 @@ The side-by-side view helps inspect whether the prediction draws on the moving p
 
 ## 6. Gradio Application
 
+
+
 The MonReader prototype lets users test page-flip detection on a single image. The interface provides:
 
 - An image upload field for a frame from a page-flipping video.
