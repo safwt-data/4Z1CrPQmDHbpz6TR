@@ -100,7 +100,7 @@ The side-by-side view helps inspect whether the prediction draws on the moving p
 
 ## 6. Gradio Application
 
-
+Link to article: https://medium.com/@safwtsafwt19/can-a-single-frame-catch-a-page-turn-building-a-classifier-for-mobile-scanning-7ea00ac353e1
 
 The MonReader prototype lets users test page-flip detection on a single image. The interface provides:
 
