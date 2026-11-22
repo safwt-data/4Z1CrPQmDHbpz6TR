@@ -76,21 +76,21 @@ The custom CNN provides a baseline trained from scratch. The transfer-learning e
 
 | Model | Accuracy | F1 | Precision | Recall | ROC-AUC | PR-AUC | Size (MiB) | Parameters |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Custom CNN | 0.8141 | 0.8465 | 0.7356 | 0.9967 | 0.9456 | 0.9152 | 0.89 | 73,825 |
-| ResNet50 | 0.9615 | **0.9631** | 0.9494 | 0.9772 | 0.9963 | 0.9967 | 90.63 | 23,589,761 |
-| VGG16 | 0.8660 | 0.8662 | 0.8900 | 0.8436 | 0.9429 | 0.9410 | 56.22 | 14,715,201 |
-| VGG16 + augmentation | 0.6767 | 0.6497 | 0.7336 | 0.5831 | 0.7751 | 0.7630 | 56.23 | 14,715,201 |
-| EfficientNetB0 | 0.9162 | 0.9216 | 0.8882 | 0.9577 | 0.9780 | 0.9797 | 16.27 | 4,050,852 |
-| **MobileNetV2 (frozen)** | **0.9196** | **0.9236** | **0.9034** | 0.9446 | 0.9804 | 0.9821 | **9.19** | 2,259,265 |
-| MobileNetV2 (partially unfrozen) | 0.9062 | 0.9146 | 0.8596 | 0.9772 | 0.9786 | 0.9789 | 18.40 | 2,259,265 |
+| Custom CNN | 0.9397 | 0.9436 | 0.9094 | 0.9805 | 0.9917 | 0.9886 | 0.89 | 73,825 |
+| ResNet50 | 0.9698 | **0.9714** | 0.9474 | 0.9967 | 0.9969 | 0.9971 | 90.63 | 23,589,761 |
+| VGG16 | 0.8894 | 0.8978 | 0.8555 | 0.9446 | 0.9620 | 0.9597 | 56.22 | 14,715,201 |
+| VGG16 + augmentation | 0.9062 | 0.9111 | 0.8885 | 0.9349 | 0.9701 | 0.9685 | 56.23 | 14,715,201 |
+| EfficientNetB0 | 0.9263 | 0.9312 | 0.8949 | 0.9707 | 0.9806 | 0.9822 | 16.27 | 4,050,852 |
+| MobileNetV2 (frozen) | 0.9213 | 0.9238 | 0.9194 | 0.9283 | 0.9835 | 0.9847 | 9.19 | 2,259,265 |
+| MobileNetV2 (partially unfrozen) | 0.9548 | 0.9577 | 0.9217 | 0.9967 | 0.9963 | 0.9964 | 18.40 | 2,259,265 |
 
-Figures come from the notebook's final comparison of reloaded `.keras` models. The notebook divides bytes by 1,048,576, so file sizes are shown in MiB. The size targets yield the same qualifying models in either MB or MiB.
+Fine-tuned MobileNetV2 achieved a higher test F1 score than frozen MobileNetV2 (0.9577 vs. 0.9238), but its training and validation loss curves showed signs of overfitting. The frozen model showed a much smaller gap between training and validation loss, indicating more stable validation performance during training. I selected MobileNetV2 with a frozen backbone for the Gradio app because of this stability. It also had a smaller saved file size (9.19 MiB vs. 18.40 MiB).
 
 ## 4. Model Optimization
 
 The frozen MobileNetV2 trains the classification head while keeping the pretrained backbone fixed. The partial fine-tuning experiment starts from ImageNet weights with the final **20 backbone layers** trainable. It uses Adam at **0.00001** and early stopping on validation loss with best-weight restoration.
 
-Partial fine-tuning increased `notflip` recall from **0.9446** to **0.9772**. Precision fell from **0.9034** to **0.8596**, and the saved file grew from **9.19 MiB** to **18.40 MiB**. Frozen MobileNetV2 had the higher F1 of the two configurations.
+Partial fine-tuning increased notflip recall from 0.9283 to 0.9967 and precision from 0.9194 to 0.9217. Test F1 rose from 0.9238 to 0.9577, and the saved model grew from 9.19 MiB to 18.40 MiB. The fine-tuned model’s loss curves showed signs of overfitting, so I chose frozen MobileNetV2 for the Gradio app because it had a smaller gap between training and validation loss.
 
 ## 5. Model Explainability
 
